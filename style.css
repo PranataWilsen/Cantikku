@@ -1,0 +1,122 @@
+:root {
+  --primary: #141414;
+  --accent: #e50914;
+  --light: #fff;
+  --gray: #888;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--primary);
+  color: var(--light);
+  line-height: 1.6;
+}
+
+header {
+  padding: 40px 20px;
+  text-align: center;
+  background: linear-gradient(to bottom, #1e1e1e, transparent);
+}
+
+header h1 {
+  font-size: 2.8em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.1em;
+  color: var(--gray);
+  font-style: italic;
+}
+
+/* === GALERI CENTER === */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;              /* Center container */
+  justify-items: center;       /* Center image inside grid cell */
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 200px;             /* Prevent image too wide */
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+}
+
+.gombal-section {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.gombal-section button {
+  background-color: var(--accent);
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.1em;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.gombal-section button:hover {
+  background-color: #c30710;
+  transform: scale(1.05);
+}
+
+#gombalan {
+  margin-top: 25px;
+  font-size: 1.4em;
+  color: #ffb3b3;
+  font-style: italic;
+  padding: 0 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--gray);
+  font-size: 0.9em;
+}
+
+/* === RESPONSIF MOBILE === */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2em;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    padding: 10px;
+  }
+
+  .gombal-section button {
+    width: 90%;
+    font-size: 1em;
+  }
+
+  #gombalan {
+    font-size: 1.2em;
+  }
+}

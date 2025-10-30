@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cinta Tanpa Batas 💘</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      background: radial-gradient(circle at top, #ff6ba1 0%, #180628 100%);
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    header {
+      padding: 80px 20px 40px;
+      position: relative;
+      z-index: 2;
+      animation: fadeDown 1.5s ease-out;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #ffaad4, #ffe29f, #9be7ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    header p {
+      margin-top: 12px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* === GALERI === */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 24px;
+      padding: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 360px; /* 💖 Lebih tinggi dari sebelumnya (280px → 360px) */
+      object-fit: cover;
+      object-position: center;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+      transform: scale(0.96);
+      transition: all 0.45s ease;
+      filter: brightness(0.9) saturate(1.05);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.08) rotate(1deg);
+      filter: brightness(1.1) saturate(1.2);
+      box-shadow: 0 0 35px rgba(255, 107, 154, 0.6);
+    }
+
+    /* === GOMBAL SECTION === */
+    .gombal-section {
+      padding: 40px 20px 80px;
+      z-index: 2;
+      position: relative;
+    }
+
+    button {
+      background: linear-gradient(90deg, #ff7bbd, #ffb86c);
+      color: #fff;
+      border: none;
+      padding: 14px 36px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 5px 25px rgba(255, 127, 127, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(255, 174, 201, 0.8);
+    }
+
+    #gombalan {
+      margin-top: 28px;
+      font-size: 1.3rem;
+      line-height: 1.8;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      min-height: 60px;
+    }
+
+    #gombalan.show { opacity: 1; }
+
+    footer {
+      padding: 30px 20px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      z-index: 2;
+      position: relative;
+    }
+
+    /* === DEKORASI BINTANG + HATI === */
+    .stars, .heart {
+      position: absolute;
+      border-radius: 50%;
+    }
+    .stars {
+      width: 2px; height: 2px;
+      background: white;
+      animation: twinkle 5s infinite ease-in-out;
+    }
+    .heart {
+      color: #ff6ba1;
+      font-size: 18px;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.8; }
+      100% { transform: translateY(-800px) scale(1.4); opacity: 0; }
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.3rem; }
+      .gallery img { height: 240px; } /* proporsional di HP */
+      button { width: 80%; }
+    }
+  </style>
+</head>
+<body onload="playMusic()">
+
+  <!-- BACKGROUND BINTANG -->
+  <script>
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.classList.add('stars');
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(star);
+    }
+
+    // Efek hati mengapung 💖
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '💖';
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.bottom = '-20px';
+      heart.style.fontSize = Math.random() * 12 + 16 + 'px';
+      heart.style.animationDuration = 5 + Math.random() * 3 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }, 700);
+  </script>
+
+  <!-- MUSIK -->
+  <audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <header>
+    <h1>Hai, Cantikku Caya Sayanggg 🌙</h1>
+    <p>Layaknya Netflix, aku nggak pernah bosan <br> buat nonton senyummu berulang-ulang.</p>
+  </header>
+
+  <main class="gallery">
+    <img src="images/foto1.jpeg" alt="Pacarku 1">
+    <img src="images/foto2.jpeg" alt="Pacarku 2">
+    <img src="images/foto3.jpeg" alt="Pacarku 3">
+    <img src="images/foto4.jpeg" alt="Pacarku 4">
+  </main>
+
+  <section class="gombal-section">
+    <button onclick="tampilkanGombalan()">Klik Aku 😚</button>
+    <div id="gombalan"></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Dibuat dengan cinta oleh cowokmu paling keren sedunia 💞 -W</p>
+  </footer>
+
+  <script>
+    function playMusic() {
+      const audio = document.getElementById('bg-music');
+      audio.volume = 0;
+      document.body.addEventListener('click', () => {
+        audio.play();
+        let v = 0;
+        const fade = setInterval(() => {
+          if (v < 0.5) {
+            v += 0.02;
+            audio.volume = v;
+          } else clearInterval(fade);
+        }, 200);
+      }, { once: true });
+    }
+
+    const gombalanList = [
+      "Kamu tahu nggak, setiap kali aku lihat kamu, dunia rasanya kayak berhenti sebentar cuma buat kita berdua.",
+      "Kalau senyum kamu dijual, aku bakal jadi pelanggan tetap seumur hidup.",
+      "Kamu itu kayak kopi di pagi hari — bikin aku melek dan semangat tiap hari.",
+      "Kalau kamu bintang, aku pengen jadi langit biar bisa terus ngelindungin kamu dari jauh.",
+      "Sumpah, kalau cinta bisa diukur, punyaku buat kamu udah melebihi limit alam semesta."
+    ];
+
+    function tampilkanGombalan() {
+      const gombal = document.getElementById('gombalan');
+      const random = gombalanList[Math.floor(Math.random() * gombalanList.length)];
+      gombal.classList.add('show');
+      gombal.textContent = '';
+      let i = 0;
+      const typing = setInterval(() => {
+        gombal.textContent += random.charAt(i);
+        i++;
+        if (i >= random.length) clearInterval(typing);
+      }, 40);
+    }
+  </script>
+
+</body>
+</html>
